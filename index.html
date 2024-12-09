@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enjoya - Adventure Experience</title>
+    
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="videos/background.mp4" as="video" type="video/mp4">
+    
+    <!-- Critical CSS -->
+    <style>
+        body { opacity: 0; transition: opacity 0.3s; }
+        body.loaded { opacity: 1; }
+    </style>
+    
+    <!-- Async Loading -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- Fonts and Icons Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Performance Scripts -->
+    <script>
+        // Lazy Load Images
+        document.addEventListener('DOMContentLoaded', function() {
+            var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+
+            // Fade in body
+            document.body.classList.add('loaded');
+        });
+
+        // Defer non-critical scripts
+        window.addEventListener('load', function() {
+            var scripts = document.getElementsByTagName('script');
+            for (var i = 0; i < scripts.length; i++) {
+                if (scripts[i].getAttribute('data-defer')) {
+                    var script = document.createElement('script');
+                    script.src = scripts[i].getAttribute('data-defer');
+                    document.body.appendChild(script);
+                }
+            }
+        });
+    </script>
+    
+    <!-- Deferred Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie.min.js" data-defer></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Enjoya</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#upcoming-games">Upcoming Games</a>
+                <a href="#demo-game">Demo Game</a>
+                <a href="faq.html">FAQs</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="video-background">
+            <video autoplay loop muted playsinline>
+                <source src="videos/background.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-fallback">
+                Video could not be loaded. Please check the file.
+            </div>
+        </div>
+        <div class="hero">
+            <h1>Discover Joy in Every Moment</h1>
+            <p>Unforgettable experiences crafted just for you</p>
+            <a href="#upcoming-games" class="cta-button">Start Your Journey</a>
+        </div>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Enjoya</h2>
+                <p>We create magical moments and unforgettable experiences that bring joy to your life. Our carefully curated adventures are designed to inspire, excite, and create lasting memories.</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Personalized</h3>
+                    <p>Experiences tailored to your preferences</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <h3>Premium</h3>
+                    <p>High-quality services and attention to detail</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-smile"></i>
+                    <h3>Memorable</h3>
+                    <p>Creating lasting memories and stories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Your adventure is just four simple steps away</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">
+                        <span>1</span>
+                    </div>
+                    <h3>Choose Your Game</h3>
+                    <p>Select from our themed adventures or customize your own unique experience</p>
+                    <div id="chooseAnimation" class="step-animation"></div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">
+                        <span>2</span>
+                    </div>
+                    <h3>Form Your Team</h3>
+                    <p>Gather your friends or join other adventurers</p>
+                    <div id="teamAnimation" class="step-animation"></div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">
+                        <span>3</span>
+                    </div>
+                    <h3>Book Your Slot</h3>
+                    <p>Pick your preferred date and time</p>
+                    <div id="bookAnimation" class="step-animation"></div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">
+                        <span>4</span>
+                    </div>
+                    <h3>Live The Adventure</h3>
+                    <p>Experience the thrill and solve the mysteries</p>
+                    <div id="adventureAnimation" class="step-animation"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience-magic-section">
+        <div class="container">
+            <div class="magic-image-overlay">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Adventure Experience">
+                <div class="magic-text-overlay">
+                    <h3>Experience the Magic</h3>
+                    <p>Live the Moment</p>
+                    <a href="#upcoming-games" class="cta-button">Discover Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="upcoming-games" class="upcoming-games-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Games</h2>
+                <p>Discover our exciting range of interactive real-life adventure games waiting for you</p>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-image" style="background-image: url('images/Case 27 Mystery.jpeg')">
+                        <div class="card-overlay">
+                            <h3>Case 27 Mystery</h3>
+                            <p>Solve the unsolved enigma</p>
+                            <a href="#sign-up" class="card-link">Register Interest</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-image" style="background-image: url('images/red door.jpeg')">
+                        <div class="card-overlay">
+                            <h3>Shadow of Room 13</h3>
+                            <p>Unravel the mystery hidden in the abandoned hotel</p>
+                            <a href="#sign-up" class="card-link">Register Interest</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-image" style="background-image: url('images/Eye of Horus.jpeg')">
+                        <div class="card-overlay">
+                            <h3>Finding Eyes of Horus</h3>
+                            <p>Uncover the ancient mystery</p>
+                            <a href="#sign-up" class="card-link">Register Interest</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo-game" class="demo-game-section">
+        <div class="moving-images-container">
+            <div class="moving-images-top">
+                <div class="image-track">
+                    <img src="images/1.jpeg" alt="Game Image 1" class="moving-image lazy" data-src="images/1.jpeg">
+                    <img src="images/2.jpeg" alt="Game Image 2" class="moving-image lazy" data-src="images/2.jpeg">
+                    <img src="images/3.jpeg" alt="Game Image 3" class="moving-image lazy" data-src="images/3.jpeg">
+                    <img src="images/4.jpeg" alt="Game Image 4" class="moving-image lazy" data-src="images/4.jpeg">
+                    <img src="images/5.jpeg" alt="Game Image 5" class="moving-image lazy" data-src="images/5.jpeg">
+                    <img src="images/6.jpeg" alt="Game Image 6" class="moving-image lazy" data-src="images/6.jpeg">
+                    <img src="images/7.jpeg" alt="Game Image 7" class="moving-image lazy" data-src="images/7.jpeg">
+                    <img src="images/8.jpeg" alt="Game Image 8" class="moving-image lazy" data-src="images/8.jpeg">
+                    <img src="images/9.jpeg" alt="Game Image 9" class="moving-image lazy" data-src="images/9.jpeg">
+                    <img src="images/10.jpeg" alt="Game Image 10" class="moving-image lazy" data-src="images/10.jpeg">
+                    <img src="images/11.jpeg" alt="Game Image 11" class="moving-image lazy" data-src="images/11.jpeg">
+                    <img src="images/12.jpeg" alt="Game Image 12" class="moving-image lazy" data-src="images/12.jpeg">
+                    <img src="images/13.jpeg" alt="Game Image 13" class="moving-image lazy" data-src="images/13.jpeg">
+                    <img src="images/14.jpeg" alt="Game Image 14" class="moving-image lazy" data-src="images/14.jpeg">
+                    <img src="images/15.jpeg" alt="Game Image 15" class="moving-image lazy" data-src="images/15.jpeg">
+                    <img src="images/16.jpeg" alt="Game Image 16" class="moving-image lazy" data-src="images/16.jpeg">
+                    <img src="images/17.jpeg" alt="Game Image 17" class="moving-image lazy" data-src="images/17.jpeg">
+                </div>
+            </div>
+            
+            <div class="moving-images-bottom">
+                <div class="image-track">
+                    <img src="images/18.jpeg" alt="Game Image 18" class="moving-image lazy" data-src="images/18.jpeg">
+                    <img src="images/19.jpeg" alt="Game Image 19" class="moving-image lazy" data-src="images/19.jpeg">
+                    <img src="images/20.jpeg" alt="Game Image 20" class="moving-image lazy" data-src="images/20.jpeg">
+                    <img src="images/21.jpeg" alt="Game Image 21" class="moving-image lazy" data-src="images/21.jpeg">
+                    <img src="images/22.jpeg" alt="Game Image 22" class="moving-image lazy" data-src="images/22.jpeg">
+                    <img src="images/23.jpeg" alt="Game Image 23" class="moving-image lazy" data-src="images/23.jpeg">
+                    <img src="images/24.jpeg" alt="Game Image 24" class="moving-image lazy" data-src="images/24.jpeg">
+                    <img src="images/25.jpeg" alt="Game Image 25" class="moving-image lazy" data-src="images/25.jpeg">
+                    <img src="images/26.jpeg" alt="Game Image 26" class="moving-image lazy" data-src="images/26.jpeg">
+                    <img src="images/27.jpeg" alt="Game Image 27" class="moving-image lazy" data-src="images/27.jpeg">
+                    <img src="images/28.jpeg" alt="Game Image 28" class="moving-image lazy" data-src="images/28.jpeg">
+                    <img src="images/29.jpeg" alt="Game Image 29" class="moving-image lazy" data-src="images/29.jpeg">
+                    <img src="images/30.jpeg" alt="Game Image 30" class="moving-image lazy" data-src="images/30.jpeg">
+                    <img src="images/31.jpeg" alt="Game Image 31" class="moving-image lazy" data-src="images/31.jpeg">
+                    <img src="images/32.jpeg" alt="Game Image 32" class="moving-image lazy" data-src="images/32.jpeg">
+                    <img src="images/33.jpeg" alt="Game Image 33" class="moving-image lazy" data-src="images/33.jpeg">
+                    <img src="images/34.jpeg" alt="Game Image 34" class="moving-image lazy" data-src="images/34.jpeg">
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-game-content">
+            <h2>Our Demo Game</h2>
+            <div class="demo-game-description">
+                <p>Experience the thrill of our immersive mystery adventure. Unravel secrets, solve puzzles, and challenge your detective skills in our most captivating demo game.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sign-up" class="sign-up-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Register Your Interest</h2>
+                    <p>Excited to join one of our upcoming games? Fill out your details, and we'll get back to you with more information!</p>
+                </div>
+
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScWRi9YpGJVW10Aay3iL_Z01bFqtlA3lVEJTnt7V1TLp0kIHA/viewform?embedded=true" 
+                        width="100%" 
+                        height="1067" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">جارٍ التحميل…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Start Your Journey</h2>
+                <p>Ready to create unforgettable memories? Contact us and let the adventure begin!</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Tell us about your dream experience" required></textarea>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Enjoya</h3>
+                    <p>Creating joyful moments, one experience at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: moaz@enjoya.me</p>
+                    <p>Phone: +201010017260</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Enjoya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // انيميشن اختيار اللعبة - شخص يبحث
+        var chooseAnimation = bodymovin.loadAnimation({
+            container: document.getElementById('chooseAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets3.lottiefiles.com/packages/lf20_3rqwsqnj.json'
+        });
+
+        // انيميشن تكوين الفريق - مجموعة أشخاص
+        var teamAnimation = bodymovin.loadAnimation({
+            container: document.getElementById('teamAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets8.lottiefiles.com/packages/lf20_2LdLki.json'
+        });
+
+        // انيميشن حجز الموعد - تقويم
+        var bookAnimation = bodymovin.loadAnimation({
+            container: document.getElementById('bookAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets9.lottiefiles.com/packages/lf20_xlmz9xwm.json'
+        });
+
+        // انيميشن المغامرة - مجموعة تحتفل
+        var adventureAnimation = bodymovin.loadAnimation({
+            container: document.getElementById('adventureAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets10.lottiefiles.com/packages/lf20_touohxv0.json'
+        });
+    </script>
+</body>
+</html>

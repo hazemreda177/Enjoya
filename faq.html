@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Enjoya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="faq-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Enjoya</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#upcoming-games">Upcoming Games</a>
+                <a href="index.html#demo-game">Demo Game</a>
+                <a href="faq.html">FAQs</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="faq-header">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our experiences</p>
+        </div>
+    </header>
+
+    <section class="full-faq-section">
+        <div class="container">
+            <div class="faq-search">
+                <input type="text" id="faqSearch" placeholder="Search questions...">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">All Questions</button>
+                <button class="category-btn" data-category="general">General</button>
+                <button class="category-btn" data-category="booking">Booking</button>
+                <button class="category-btn" data-category="gameplay">Gameplay</button>
+            </div>
+
+            <div class="full-faq-container">
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>What should I bring to the game?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All you need is your excitement and curiosity! We recommend wearing comfortable clothes and shoes suitable for walking. Any additional tools or materials required for the game (like maps, clues, or props) will be provided by us.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>Can I customize a game for my team or event?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We specialize in designing tailored experiences for groups, whether it's for corporate team-building, birthdays, or special events. Just let us know your preferences, and we'll create an adventure that fits your needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>Is there an age limit for participation?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our games are designed for participants aged 13 and above. However, we can customize games for younger players if it's a family event. For horror-themed games, we recommend a minimum age of 16.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="gameplay">
+                    <div class="faq-question">
+                        <h3>How long does each game last?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most of our games are designed to last between 2 to 3 hours, depending on the complexity and the group's pace. Custom durations can be arranged for special events.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="gameplay">
+                    <div class="faq-question">
+                        <h3>Are the games physically demanding?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our games involve light walking and exploring, but they are not physically intense. We ensure the activities are accessible for most participants. If you have specific requirements, please inform us in advance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="gameplay">
+                    <div class="faq-question">
+                        <h3>What happens if I get stuck on a puzzle?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No worries! Our game facilitators will be available to provide hints or guidance if your team gets stuck. We want you to enjoy the challenge while keeping the experience fun and engaging.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="gameplay">
+                    <div class="faq-question">
+                        <h3>Can we play as a team?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our games are designed for teamwork. You can join as a group (ideal team size: 3–6 players) or be paired with others to enhance the interactive experience.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>What if the weather is bad?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most of our games are held outdoors, but we monitor the weather closely. In case of bad weather, we'll either reschedule or provide an alternative indoor experience.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>How do I book a game?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Booking is easy! Just fill out the form on our website with your name, phone number, and preferred game. Our team will contact you to confirm your booking.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>What is your cancellation policy?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can cancel or reschedule your booking up to 48 hours before the game. For cancellations within 48 hours, a partial refund may be provided based on the circumstances.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>How much does it cost to participate?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Prices vary depending on the game and group size:</p>
+                        <ul>
+                            <li>Individual bookings start from EGP 350 per person</li>
+                            <li>Corporate packages and group events start from EGP 7,000 per session</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="gameplay">
+                    <div class="faq-question">
+                        <h3>Do I need prior experience to play?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not at all! Our games are designed for everyone, from beginners to experienced adventurers. We provide clear instructions at the start, so you'll know exactly what to do.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>How do you ensure safety during the games?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your safety is our top priority. All games are supervised by trained facilitators, and we choose safe, well-maintained locations. In case of any emergencies, our team is always ready to assist.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>Can I book a private game for my group?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can! Private games are perfect for birthdays, family outings, or corporate team-building. Just let us know your group size and preferred date, and we'll arrange everything for you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Enjoya</h3>
+                    <p>Creating joyful moments, one experience at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: moaz@enjoya.me</p>
+                    <p>Phone: +201010017260</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Enjoya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="faq.js"></script>
+</body>
+</html>
